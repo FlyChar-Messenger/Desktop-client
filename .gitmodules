@@ -1,0 +1,3 @@
+[submodule "grpc-protocol"]
+	path = grpc-protocol
+	url = git@github.com:FlyChar-Messenger/grpc-protocol.git
