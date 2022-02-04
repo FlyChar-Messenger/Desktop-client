@@ -1,8 +1,7 @@
 import sys
-from PySide2 import QtCore, QtWidgets, QtGui
+from PySide2 import QtWidgets
 from UI import auth_ui
-from GRPC import client_grpc
-
+from client.GRPC import client_grpc
 
 
 class Auth(QtWidgets.QMainWindow, auth_ui.Ui_MainWindow):

@@ -1,7 +1,6 @@
 import grpc
 
-from service import protocol_pb2
-from service import protocol_pb2_grpc
+from client.service import protocol_pb2, protocol_pb2_grpc
 
 
 class Client:
