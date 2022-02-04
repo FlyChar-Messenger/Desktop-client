@@ -16,15 +16,13 @@ class Auth(QtWidgets.QMainWindow, auth_ui.Ui_MainWindow):
     def auth_action(self):
         login = self.login_text_filed.text()
         password = self.pass_text_filed.text()
-        status, token = self.client.auth(login, password)
-        # print(status, token)
+        token = self.client.auth(login, password)
         pass
 
     def reg_action(self):
         login = self.login_text_filed.text()
         password = self.pass_text_filed.text()
-        status, token = self.client.register(login, password)
-        print(status, token)
+        token = self.client.register(login, password)
         pass
 
 

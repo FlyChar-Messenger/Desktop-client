@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-import service.service_pb2 as service__pb2
+import service.protocol_pb2 as protocol__pb2
 
 
 class AuthStub(object):
@@ -16,23 +16,23 @@ class AuthStub(object):
         """
         self.Register = channel.unary_unary(
                 '/protocol.Auth/Register',
-                request_serializer=service__pb2.RegisterRequest.SerializeToString,
-                response_deserializer=service__pb2.RegisterResponse.FromString,
+                request_serializer=protocol__pb2.RegisterRequest.SerializeToString,
+                response_deserializer=protocol__pb2.RegisterResponse.FromString,
                 )
         self.Auth = channel.unary_unary(
                 '/protocol.Auth/Auth',
-                request_serializer=service__pb2.AuthRequest.SerializeToString,
-                response_deserializer=service__pb2.AuthResponse.FromString,
+                request_serializer=protocol__pb2.AuthRequest.SerializeToString,
+                response_deserializer=protocol__pb2.AuthResponse.FromString,
                 )
         self.PingRequest = channel.unary_unary(
                 '/protocol.Auth/PingRequest',
-                request_serializer=service__pb2.Ping.SerializeToString,
-                response_deserializer=service__pb2.Ping.FromString,
+                request_serializer=protocol__pb2.Ping.SerializeToString,
+                response_deserializer=protocol__pb2.Ping.FromString,
                 )
         self.PingStream = channel.unary_stream(
                 '/protocol.Auth/PingStream',
-                request_serializer=service__pb2.Ping.SerializeToString,
-                response_deserializer=service__pb2.Ping.FromString,
+                request_serializer=protocol__pb2.Ping.SerializeToString,
+                response_deserializer=protocol__pb2.Ping.FromString,
                 )
 
 
@@ -68,23 +68,23 @@ def add_AuthServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'Register': grpc.unary_unary_rpc_method_handler(
                     servicer.Register,
-                    request_deserializer=service__pb2.RegisterRequest.FromString,
-                    response_serializer=service__pb2.RegisterResponse.SerializeToString,
+                    request_deserializer=protocol__pb2.RegisterRequest.FromString,
+                    response_serializer=protocol__pb2.RegisterResponse.SerializeToString,
             ),
             'Auth': grpc.unary_unary_rpc_method_handler(
                     servicer.Auth,
-                    request_deserializer=service__pb2.AuthRequest.FromString,
-                    response_serializer=service__pb2.AuthResponse.SerializeToString,
+                    request_deserializer=protocol__pb2.AuthRequest.FromString,
+                    response_serializer=protocol__pb2.AuthResponse.SerializeToString,
             ),
             'PingRequest': grpc.unary_unary_rpc_method_handler(
                     servicer.PingRequest,
-                    request_deserializer=service__pb2.Ping.FromString,
-                    response_serializer=service__pb2.Ping.SerializeToString,
+                    request_deserializer=protocol__pb2.Ping.FromString,
+                    response_serializer=protocol__pb2.Ping.SerializeToString,
             ),
             'PingStream': grpc.unary_stream_rpc_method_handler(
                     servicer.PingStream,
-                    request_deserializer=service__pb2.Ping.FromString,
-                    response_serializer=service__pb2.Ping.SerializeToString,
+                    request_deserializer=protocol__pb2.Ping.FromString,
+                    response_serializer=protocol__pb2.Ping.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -108,8 +108,8 @@ class Auth(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/protocol.Auth/Register',
-            service__pb2.RegisterRequest.SerializeToString,
-            service__pb2.RegisterResponse.FromString,
+            protocol__pb2.RegisterRequest.SerializeToString,
+            protocol__pb2.RegisterResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -125,8 +125,8 @@ class Auth(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/protocol.Auth/Auth',
-            service__pb2.AuthRequest.SerializeToString,
-            service__pb2.AuthResponse.FromString,
+            protocol__pb2.AuthRequest.SerializeToString,
+            protocol__pb2.AuthResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -142,8 +142,8 @@ class Auth(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/protocol.Auth/PingRequest',
-            service__pb2.Ping.SerializeToString,
-            service__pb2.Ping.FromString,
+            protocol__pb2.Ping.SerializeToString,
+            protocol__pb2.Ping.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -159,8 +159,8 @@ class Auth(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_stream(request, target, '/protocol.Auth/PingStream',
-            service__pb2.Ping.SerializeToString,
-            service__pb2.Ping.FromString,
+            protocol__pb2.Ping.SerializeToString,
+            protocol__pb2.Ping.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -176,13 +176,13 @@ class MessengerStub(object):
         """
         self.PingRequest = channel.unary_unary(
                 '/protocol.Messenger/PingRequest',
-                request_serializer=service__pb2.Ping.SerializeToString,
-                response_deserializer=service__pb2.Ping.FromString,
+                request_serializer=protocol__pb2.Ping.SerializeToString,
+                response_deserializer=protocol__pb2.Ping.FromString,
                 )
         self.PingStream = channel.unary_stream(
                 '/protocol.Messenger/PingStream',
-                request_serializer=service__pb2.Ping.SerializeToString,
-                response_deserializer=service__pb2.Ping.FromString,
+                request_serializer=protocol__pb2.Ping.SerializeToString,
+                response_deserializer=protocol__pb2.Ping.FromString,
                 )
 
 
@@ -206,13 +206,13 @@ def add_MessengerServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'PingRequest': grpc.unary_unary_rpc_method_handler(
                     servicer.PingRequest,
-                    request_deserializer=service__pb2.Ping.FromString,
-                    response_serializer=service__pb2.Ping.SerializeToString,
+                    request_deserializer=protocol__pb2.Ping.FromString,
+                    response_serializer=protocol__pb2.Ping.SerializeToString,
             ),
             'PingStream': grpc.unary_stream_rpc_method_handler(
                     servicer.PingStream,
-                    request_deserializer=service__pb2.Ping.FromString,
-                    response_serializer=service__pb2.Ping.SerializeToString,
+                    request_deserializer=protocol__pb2.Ping.FromString,
+                    response_serializer=protocol__pb2.Ping.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -236,8 +236,8 @@ class Messenger(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/protocol.Messenger/PingRequest',
-            service__pb2.Ping.SerializeToString,
-            service__pb2.Ping.FromString,
+            protocol__pb2.Ping.SerializeToString,
+            protocol__pb2.Ping.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -253,7 +253,7 @@ class Messenger(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_stream(request, target, '/protocol.Messenger/PingStream',
-            service__pb2.Ping.SerializeToString,
-            service__pb2.Ping.FromString,
+            protocol__pb2.Ping.SerializeToString,
+            protocol__pb2.Ping.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
