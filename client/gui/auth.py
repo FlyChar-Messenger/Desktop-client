@@ -1,7 +1,7 @@
 import sys
 from PySide2 import QtWidgets
-from UI import auth_ui
-from client.GRPC import client_grpc
+from client.gui.ui import auth_ui
+from client.grpc import client_grpc
 
 
 class Auth(QtWidgets.QMainWindow, auth_ui.Ui_MainWindow):
@@ -16,13 +16,11 @@ class Auth(QtWidgets.QMainWindow, auth_ui.Ui_MainWindow):
         login = self.login_text_filed.text()
         password = self.pass_text_filed.text()
         token = self.client.auth(login, password)
-        pass
 
     def reg_action(self):
         login = self.login_text_filed.text()
         password = self.pass_text_filed.text()
         token = self.client.register(login, password)
-        pass
 
 
 if __name__ == "__main__":

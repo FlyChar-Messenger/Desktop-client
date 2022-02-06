@@ -1,11 +1,12 @@
 import sqlalchemy
 from sqlalchemy.orm import sessionmaker, Session
-from DB.models import UserData
+from client.db.models import UserData
+from client import config
 
 
 class DB:
     def __init__(self):
-        self.engine = sqlalchemy.create_engine("sqlite:///sqlite3.db")
+        self.engine = sqlalchemy.create_engine(f"sqlite:///{config.DB_PATH}")
         UserData.metadata.create_all(self.engine)
         self.session = Session(bind=self.engine)
 
@@ -37,8 +38,14 @@ class DB:
         self.session.query(UserData).delete()
         self.session.commit()
 
+    def get_token(self) -> str:
+        row = self.session.query(UserData).first()
+        if row is not None:
+            return row.token
+        return ""
+
 
 if __name__ == "__main__":
     db = DB()
-    db.update_user_data(12, "sdf", "sdf", "sdf", "sdf", "sdf")
-    db.update_token("qwe")
+    db.delete_data()
+    print("data deleted")

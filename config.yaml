@@ -1,0 +1,6 @@
+DB:
+  PATH: ./sql/sqlite3.db
+
+GRPC:
+  URL: platun0v.ru
+  PORT: 49578
