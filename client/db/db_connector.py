@@ -12,20 +12,19 @@ class DB:
 
     def update_user_data(
             self,
-            id: int,
             token: str,
             login: str,
             password: str,
-            name: str,
-            surname: str) -> None:
+            # name: str,
+            # surname: str
+    ) -> None:
         self.session.add(
             UserData(
-                id=id,
                 token=token,
                 login=login,
                 password=password,
-                name=name,
-                surname=surname
+                # name=name,
+                # surname=surname
             )
         )
         self.session.commit()
@@ -45,7 +44,8 @@ class DB:
         return ""
 
 
+db = DB()
+
 if __name__ == "__main__":
-    db = DB()
     db.delete_data()
     print("data deleted")

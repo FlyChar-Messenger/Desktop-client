@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QFrame" name="frame">
+   <widget class="QFrame" name="chat_frame">
     <property name="geometry">
      <rect>
       <x>220</x>
@@ -30,17 +30,20 @@
      <enum>QFrame::Raised</enum>
     </property>
    </widget>
-   <widget class="QGroupBox" name="LeftGroupBox">
+   <widget class="QFrame" name="tools_frame">
     <property name="geometry">
      <rect>
       <x>0</x>
       <y>0</y>
       <width>221</width>
-      <height>571</height>
+      <height>581</height>
      </rect>
     </property>
-    <property name="title">
-     <string>GroupBox</string>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
     </property>
     <widget class="QTextEdit" name="searchField">
      <property name="geometry">

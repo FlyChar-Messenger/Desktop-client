@@ -7,12 +7,11 @@ Base = declarative_base()
 
 class UserData(Base):
     __tablename__ = "user_data"
-    id = sqlalchemy.Column(sqlalchemy.Integer, nullable=False, unique=True, primary_key=True)
-    token = sqlalchemy.Column(sqlalchemy.String, nullable=False)
-    login = sqlalchemy.Column(sqlalchemy.String, nullable=False)
+    login = sqlalchemy.Column(sqlalchemy.String, nullable=False, unique=True, primary_key=True)
     password = sqlalchemy.Column(sqlalchemy.String, nullable=False)
-    name = sqlalchemy.Column(sqlalchemy.String, nullable=False)
-    surname = sqlalchemy.Column(sqlalchemy.String, nullable=False)
+    token = sqlalchemy.Column(sqlalchemy.String, nullable=False)
+    name = sqlalchemy.Column(sqlalchemy.String)
+    surname = sqlalchemy.Column(sqlalchemy.String)
 
 
 # class Chats(Base):
